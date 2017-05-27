@@ -1,0 +1,327 @@
+
+ 			<!-- Navigation -->
+        <link rel="stylesheet" href="<?php echo PUBLIC_URL; ?>css/wizard.css" type="text/css" />
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <h1 class="page-header">Per&iacute;odos Acad&eacute;micos</h1>
+
+                        <div class="container">
+                            <div class="">
+                           
+                                <div class="row">
+                                    <div class="stepwizard-row setup-panel">
+
+                                        <div class="stepwizard-step">
+                                            <a id="btnPersonalAdmin" href="#step-1" type="button" class="btn btn-warning">Personal Administrativo</a>
+                                        </div>
+                                        <div class="stepwizard-step">
+                                            <a  href="#step-2" type="button" class="btn btn-info">Personal Docente</a>
+                                        </div>
+
+                                        <div class="stepwizard-step">
+                                            <a href="#step-3" type="button" class="btn btn-danger">Personal Obrero</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+								
+								<!--Formulario de Personal Administrativo-->
+                                <form action="<?php echo BASE_URL;?>personal/listadoexpediente" method="post" role="form" class="col-md-9 go-right"><h5>
+
+                                <div class="row setup-content" id="step-1">
+                                    <div class="col-xs-12">
+                                      	<div class="table-responsive"><br><br>
+                                    
+                                    <table class="table table-hover table-bordered table-condensed">
+                                        <thead>
+                                            <tr class="warning">
+                                                <th><center>Expediente</center></th>
+                                                <th><center>C.I.</center></th>
+                                                <th><center>Nombres</center></th>
+                                                <th><center>Apellidos</center></th>
+                                                <th><center>Cargo</center></th>
+                                                <th><center>Departamento</center></th>
+                                                <th><center>Tel&eacute;fono/s</center></th>
+                                                <th><center>Redes</center></th>
+                                                <th colspan="4"><center>Acciones</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php 
+                                        foreach ($this->_listado as $listado): 
+                                            if($listado['idtipopersonapersonal'] == 13) {
+                                    ?>
+									<tr> 
+                                        <td><?php echo $listado['idpersonal']; ?></td> 
+                                        <td><?php echo $listado['cedulapersonal']; ?></td>  
+                                        <td><?php echo $listado['nombre1personal']." ".$listado['nombre2personal']; ?></td>  
+                                        <td><?php echo $listado['apellido1personal']." ".$listado['apellido2personal']; ?></td>          
+                                        <td><?php echo $listado['cedulapersonal']; ?></td> 
+                                        <td><?php echo $listado['cedulapersonal']; ?></td> 
+                                        <!-- Trigger the modal with a button -->
+                                        <td>
+                                            <center><a href="" data-toggle="modal" title="Ver Tel&eacute;fono/s de <?php echo $listado['nombre1personal']." ".$listado['apellido1personal']; ?>" data-target="#ModalTelefonos" onclick="consulta(<?php echo $listado['idpersonal']; ?>,'telefono')"><span style="color:black;" class="glyphicon glyphicon-earphone"></span></a></center>
+                                        </td>
+                                        <td>
+                                        <center><a href="" data-toggle="modal" title="Ver Red/es Social/es de <?php echo $listado['nombre1personal']." ".$listado['apellido1personal']; ?>" data-target="#ModalRedesSociales" onclick="consulta(<?php echo $listado['idpersonal']; ?>,'redes_sociales')"><span style="color:black;" class="glyphicon glyphicon-list"></span></a></center>
+                                        </td>
+
+                                        <td>
+                                            <center><a href="<?php echo BASE_URL. "personal/personaAdministrativo/".$listado['idpersonal'];?>" data-toggle="tooltip" data-placement="bottom" title="Modificar Datos de <?php echo $listado['nombre1personal']." ".$listado['apellido1personal']; ?>"><span style="color:black;" class="glyphicon glyphicon-edit"></span></a></center>
+                                        </td>
+                                        <td>
+                                            <center><a href="<?php echo BASE_URL. "personal/delete".$listado['idpersonal'];?>" data-toggle="tooltip" data-placement="bottom" title="Eliminar Datos de <?php echo $listado['nombre1personal']." ".$listado['apellido1personal']; ?>" onclick="consulta(<?php echo $listado['idpersonal']; ?>,'redes_sociales')"><span style="color:black;" class="glyphicon glyphicon-remove-circle"></span></a></center>
+                                        </td>
+
+                                        <td>
+                                        
+                                       <!-- <center><h3><form action="Creator.php" method="post" target="_blank" id="FormularioExportacion">
+    <p>Descargar en Excel  <img src="css/excel.png" class="botonExcel" /></p>
+    <input type="hidden" id="datos_a_enviar" name="datos_a_enviar" /></h3></center> -->
+
+
+                                            <center><a href="<?php echo BASE_URL." personal/exporta_excel/".$listado['idpersonal'];?>" data-toggle="tooltip" data-placement="bottom" title="Exportar Datos de <?php echo $listado['nombre1personal']." ".$listado['apellido1personal']; ?> a Excel""><span style="color:black;" class="glyphicon glyphicon-download"></span></a></center>
+                                        </td>
+
+                                             <div class="modal fade bs-example-modal-sm" id="ModalTelefonos" role="dialog">
+                                                <div class="modal-dialog modal-sm">
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                    <div class="alert alert-warning alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <div id="valores">
+                                                        <?php 
+                                                            $codigoareau1 = FALSE; $codigoareau2 = FALSE; $codigoareau3 = FALSE;
+                                                            list($codigoareau1,$codigoareau2,$codigoareau3) = explode('----',$listado['codigoarea']);
+                                                            $telefonou1 = FALSE; $telefonou2 = FALSE; $telefonou3 = FALSE;
+                                                            list($telefonou1,$telefonou2,$telefonou3) = explode('----',$listado['telefono']);
+                                                            if ($codigoareau1 != FALSE && $telefonou1 != FALSE)
+                                                            {
+                                                                echo "Teléfono Nº 1: (".$codigoareau1.") ".$telefonou1; 
+                                                            }
+                                                            if ($codigoareau2 != FALSE && $telefonou2 != FALSE)
+                                                            {
+                                                                echo "<br>Teléfono Nº 2: (".$codigoareau2.") ".$telefonou2; 
+                                                            }
+                                                            if ($codigoareau3 != FALSE && $telefonou3 != FALSE)
+                                                            {
+                                                                echo "<br>Teléfono Nº 3: (".$codigoareau3.") ".$telefonou3; 
+                                                            }
+                                                        ?>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="ModalRedesSociales" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                    <div class="alert alert-warning alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <div id="valores">
+                                                        <?php 
+                                                            $tiporedsocialu1 = FALSE; $tiporedsocialu2 = FALSE; $tiporedsocialu3 = FALSE;
+                                                            list($tiporedsocialu1,$tiporedsocialu2,$tiporedsocialu3) = explode('----',$listado['tiporedsocial']);
+                                                            $cuentaredsocialu1 = FALSE; $cuentaredsocialu2 = FALSE; $cuentaredsocialu3 = FALSE;
+                                                            list($cuentaredsocialu1,$cuentaredsocialu2,$cuentaredsocialu3) = explode('----',$listado['cuentaredsocial']);
+                                                            if ($tiporedsocialu1 != FALSE && $cuentaredsocialu1 != FALSE)
+                                                            {
+                                                                echo "Tipo de Red Social: <b><i>".$tiporedsocialu1.".</i></b> Cuenta: <i><b>".$cuentaredsocialu1."</b></i>.";
+                                                            }
+                                                            if ($tiporedsocialu2 != FALSE && $cuentaredsocialu2 != FALSE)
+                                                            {
+                                                                echo "<br>Tipo de Red Social: <b><i>".$tiporedsocialu2.".</i></b> Cuenta: <i><b>".$cuentaredsocialu2."</b></i>.";
+                                                            }
+                                                            if ($tiporedsocialu3 != FALSE && $cuentaredsocialu3 != FALSE)
+                                                            {
+                                                                echo "<br>Tipo de Red Social: <b><i>".$tiporedsocialu3.".</i></b> Cuenta: <i><b>".$cuentaredsocialu3."</b></i>.";
+                                                            }
+                                                        ?>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                </div>
+                                            </div>
+
+                                            <!-- Modal "Eliminar Registro" -->
+                                            <div class="modal fade" id="ModalEliminarRegistroAdministrativo" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                    <div class="alert alert-warning alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <strong>Alerta:</strong> ¿Est&aacute; seguro/a que desea eliminar el expediente Nº <strong>201601051230</strong>?<br><br>
+                                                        <center>
+                                                            <button type="button" class="btn btn-danger" onclick="<?php echo BASE_URL;?>personal/eliminarexpediente" value="<?php echo $personala['id']; ?>"><span class="glyphicon glyphicon-floppy-remove"></span> Si</button>
+                                                            <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-saved"></span> No</button>
+                                                        </center>
+                                                    </div>
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                </div>
+                                            </div>
+                                            <!-- Modal "Eliminar Registro" -->
+                                        </td>
+                                    </tr>
+									<?php 
+                                            }
+                                        endforeach; 
+                                    ?>    
+                                        </tbody>
+                                    </table>
+                                    		
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="row setup-content" id="step-2">
+                                        <div class="col-xs-12">
+                                           
+                                <div class="table-responsive"><br><br>
+                                    
+                                    <table class="table table-hover table-bordered table-condensed">
+                                        <thead>
+                                            <tr class="info">
+                                                <th><center>Nº Expediente</center></th>
+                                                <th><center>C&eacute;dula de Identidad</center></th>
+                                                <th><center>Nombres</center></th>
+                                                <th><center>Apellidos</center></th>
+                                                <th><center>Carreras: Semestre | Materia</center></th>
+                                                <th><center>Nº de Tel&eacute;fono/s</center></th>
+                                                <th><center>Acciones</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php 
+                                        foreach ($this->_listado as $listado): 
+                                            if($listado['Tipo_Persona'] == 14){
+                                    ?>
+                                    <tr> 
+                                        <td><?php echo $listado['idpersonal']  ; ?></td> 
+                                        <td><?php echo $listado['Cedula']; ?></td>  
+                                        <td><?php echo $listado['nombre1personal']  ." ".$listado['nombre2personal']; ?></td>  
+                                        <td><?php echo $listado['apellido1personal']  ." ".$listado['apellido2personal']; ?></td>          
+                                        <td><?php echo $listado['Cargo']; ?></td> 
+                                        <td>
+                                            <!-- Trigger the modal with a button -->
+                                            <button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Ver M&aacute;s</button>
+                                            <button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> Actualizar</button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ModalEliminarRegistroAdministrativo"><span class="glyphicon glyphicon-remove-circle"></span> Eliminar</button>
+                                            <!-- Modal "Eliminar Registro" -->
+                                            <div class="modal fade" id="ModalEliminarRegistroAdministrativo" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                    <div class="alert alert-warning alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <strong>Alerta:</strong> ¿Est&aacute; seguro/a que desea eliminar el expediente Nº <strong>201601051230</strong>?<br><br>
+                                                        <center>
+                                                            <button type="button" class="btn btn-danger" onclick="<?php echo BASE_URL;?>personal/eliminarexpediente" value="<?php echo $personala['id']; ?>"><span class="glyphicon glyphicon-floppy-remove"></span> Si</button>
+                                                            <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-saved"></span> No</button>
+                                                        </center>
+                                                    </div>
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                </div>
+                                            </div>
+                                            <!-- Modal "Eliminar Registro" -->
+                                        </td>
+                                    </tr>
+                                    <?php 
+                                            }
+                                        endforeach; 
+                                    ?>    
+                                        </tbody>
+                                    </table>
+                                            
+                                        </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row setup-content" id="step-3">
+                                        <div class="col-xs-12">
+                                           
+                                <div class="table-responsive"><br><br>
+                                    
+                                    <table class="table table-hover table-bordered table-condensed">
+                                        <thead>
+                                            <tr class="danger">
+                                                <th><center>Nº Expediente</center></th>
+                                                <th><center>C&eacute;dula de Identidad</center></th>
+                                                <th><center>Nombres</center></th>
+                                                <th><center>Apellidos</center></th>
+                                                <th><center>Cargo</center></th>
+                                                <th><center>Departamento</center></th>
+                                                <th><center>Nº de Tel&eacute;fono/s</center></th>
+                                                <th><center>Acciones</center></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php 
+                                        foreach ($this->_listado as $listado): 
+                                            if($listado['Tipo_Persona'] == 15){
+                                    ?>
+                                    <tr> 
+                                        <td><?php echo $listado['idpersonal']  ; ?></td> 
+                                        <td><?php echo $listado['Cedula']; ?></td>  
+                                        <td><?php echo $listado['nombre1personal']  ." ".$listado['nombre2personal']; ?></td>  
+                                        <td><?php echo $listado['apellido1personal']  ." ".$listado['apellido2personal']; ?></td>          
+                                        <td><?php echo $listado['Cargo']; ?></td> 
+                                        <td><?php echo $listado['Departamento']; ?></td> 
+                                        <td><?php echo $listado['Departamento']; ?></td> 
+                                        <td>
+                                            <!-- Trigger the modal with a button -->
+                                            <button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Ver M&aacute;s</button>
+                                            <button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> Actualizar</button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ModalEliminarRegistroAdministrativo"><span class="glyphicon glyphicon-remove-circle"></span> Eliminar</button>
+                                            <!-- Modal "Eliminar Registro" -->
+                                            <div class="modal fade" id="ModalEliminarRegistroAdministrativo" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                    <div class="alert alert-warning alert-dismissable">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <strong>Alerta:</strong> ¿Est&aacute; seguro/a que desea eliminar el expediente Nº <strong>201601051230</strong>?<br><br>
+                                                        <center>
+                                                            <button type="button" class="btn btn-danger" onclick="<?php echo BASE_URL;?>personal/eliminarexpediente" value="<?php echo $personala['id']; ?>"><span class="glyphicon glyphicon-floppy-remove"></span> Si</button>
+                                                            <button type="button" class="btn btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-saved"></span> No</button>
+                                                        </center>
+                                                    </div>
+                                                    <!-- Contenido del Modal "Eliminar Registro" -->
+                                                </div>
+                                            </div>
+                                            <!-- Modal "Eliminar Registro" -->
+                                        </td>
+                                    </tr>
+                                    <?php 
+                                            }
+                                        endforeach; 
+                                    ?>    
+                                        </tbody>
+                                    </table>
+                                            
+                                        </div>
+
+                                        </div>
+                                    </div>
+
+                                </h5>
+                                
+                            </form>
+
+                            </div>
+
+                        </div>
+                            
+                    </div>
+                <!-- /.row -->
+                </div>
+
+
+            <!-- /.container-fluid -->
+            </div>
+        <!-- /#page-wrapper -->
+ 		<!-- no borrar -->
+ 		</div>
+
+ 	

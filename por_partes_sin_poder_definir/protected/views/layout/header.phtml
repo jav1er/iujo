@@ -1,0 +1,109 @@
+<!-- header.phtml -->
+
+        <div id="wrap">
+        
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Barra de Navegaci&oacute;n</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">IUJO Catia</a>
+                </div>
+                <!-- /.navbar-header -->
+
+                <ul class="nav navbar-top-links navbar-right">
+                    
+
+
+
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>Mi Perfil</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i>Configuraciones</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href=""><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesi&oacute;n</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation" ">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu" >
+                          
+                            <li >
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Personal<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a id="btnInsertPersona" href="<?php echo BASE_URL;?>personal/nuevacontratacion/">Nueva Contrataci&oacute;n</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>personal/expediente/">Expedientes</a>
+                                    </li>
+                                   
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-table fa-fw"></i>Actualizaci&oacute;n<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>actualizacion/personaAdministrativo /">Personas</a>
+                                    </li>                                              
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>actualizacion/periodo/">Per&iacute;odos Acad&eacute;micos</a>
+                                    </li>
+                                   
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Estructura Institucional<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>estructurainstitucional/carrera/">Carreras</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>estructurainstitucional/departamento/">Departamentos</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i>Administrador<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>administracion/usuario/">Mantenimiento de Usuarios</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>administracion/tablas/">Mantenimiento de Tablas</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo BASE_URL;?>administracion/respaldo/">Respado y Recuperaci&oacute;n</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+        </div>                              
+        <!-- end header.phtml -->

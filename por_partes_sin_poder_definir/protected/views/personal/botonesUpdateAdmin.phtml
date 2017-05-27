@@ -1,0 +1,53 @@
+<link href="<?php echo PUBLIC_URL;?>css/cuadro" rel="stylesheet">
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-12">
+                
+                <h2 class="page-header">Modificar Datos:</i></h2>
+            
+                <div class="container">
+                    <div class="row">
+                        <div class="stepwizard-row setup-panel">
+
+                            <div class="stepwizard-step">
+                                <a href="javascript:void(0)" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Datos Personales" data-view="dpto_admin_1" data-method="getAdminPersonalData">1</a>
+                            </div>
+                            <br>
+                            <div class="stepwizard-step">
+                                <a href="#step-2" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Enfermedades y Discapacidades" data-view="dpto_admin_1" data-method="getAdminEnfermedades">2</a>
+                            </div>
+                            <br>
+                            <div class="stepwizard-step">
+                                <a href="#step-3" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Datos del Seguro" data-view="dpto_admin_1" data-method="getAdminSeguro">3</a>
+                            </div>
+                            <br>
+                            <div class="stepwizard-step">
+                                <a href="#step-4" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Referencias Personales" data-view="dpto_admin_1" data-method="getAdminReferencias" >4</a>
+                            </div>
+                            <br>
+                            <div class="stepwizard-step">
+                                <a href="#step-5" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Formaci&oacute;n Acad&eacute;mica" data-view="dpto_admin_1" data-method="getAdminFormacion"  >5</a>
+                            </div>
+                            <br>
+                            <div class="stepwizard-step">
+                                <a href="#step-6" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Cl&aacute;usulas de la Contrataci&oacute;n" data-view="dpto_admin_1" data-method="getAdminContratacion"     > 6</a>
+                            </div>
+                            <br>
+                            <div class="stepwizard-step">
+                                <a href="#step-7" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Salarios" data-view="dpto_admin_1"  data-method="getAdminSalarios"  >7</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- AQUI VA LA RESPUESTA AJAX -->
+                    <div id="respuesta"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

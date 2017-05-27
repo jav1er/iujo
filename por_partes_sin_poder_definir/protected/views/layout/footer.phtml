@@ -1,0 +1,51 @@
+</div> <!-- #wrapper -->
+
+	<label  hidden id="base_url"><?php echo BASE_URL; ?></label>
+	<script type="text/javascript" src="<?php echo PUBLIC_URL; ?>js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="<?php echo PUBLIC_URL; ?>js/main.js"></script>
+	<!-- / START - page related files and scripts [optional] -->
+    <?php  if (isset($_view_params['js']) && count($_view_params['js'])): ?>
+	<?php  	for ($i = 0; $i < count($_view_params['js']); $i++):  ?>
+		<script src="<?php echo $_view_params['js'][$i]; ?>"></script>
+	<?php  	endfor; ?>
+	<?php  endif;?>
+    <!-- / END - page related files and scripts [optional] -->
+ 	<script src="<?php echo PUBLIC_URL;?>js/j.js"></script>
+ 		<script src="<?php echo PUBLIC_URL;?>js/jquery.js"></script>
+    <script src="<?php echo PUBLIC_URL;?>otros/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo PUBLIC_URL;?>otros/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="<?php echo PUBLIC_URL;?>otros/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="<?php echo PUBLIC_URL;?>otros/dist/js/sb-admin-2.js"></script>
+	<script type="text/javascript" src="<?php echo PUBLIC_URL; ?>js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="<?php echo PUBLIC_URL; ?>js/index.js"></script>
+	
+	<script>
+	   var BASE_URL = $('#base_url').text();
+	</script>
+
+    <script type="text/javascript">
+        $(function (){
+            $('[data-toggle="tooltip"').tooltip()
+        })
+
+        $(document).ready(function() {
+		$(".botonExcel").click(function(event) {
+			$("#datos_a_enviar").val( $("<div>").append( $("#Exportar_a_Excel").eq(0).clone()).html());
+			$("#FormularioExportacion").submit();
+			//alert("Error en el select ");
+	});
+	});
+    </script>
+
+</body>
+<footer id="footer">
+	<ul class="nav pull-right">
+		<li>
+			
+		</li>
+	</ul>
+</footer>
+</html>

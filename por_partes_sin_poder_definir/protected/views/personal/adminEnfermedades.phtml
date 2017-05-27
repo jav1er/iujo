@@ -1,0 +1,99 @@
+<div class="row setup-content" id="step-2">
+                                <form action="<?php  echo BASE_URL;?>personal/up_enf_disc" method="POST" role="form" class="col-md-9 go-right" name="modificarenferdisca" id="modificarenferdisca"><h5>
+                                    <!-- <input type="hidden" name="idpersonal" id="idpersonal" value="<?php echo $this->_usuario[0]['idpersonal']; ?>">
+                                    <input type="hidden" name="iddiscapacidadpuente1" id="iddiscapacidadpuente1" value="<?php echo $this->_usuario[0]['iddiscapacidadpuente1']; ?>">
+                                    <input type="hidden" name="iddisc1" id="iddisc1" value="<?php echo $this->_usuario[0]['iddiscapacidad']; ?>"> -->
+                                        
+
+       
+
+
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Enfermedad/es</label></h3></legend>
+                                        </fieldset>
+                                        <div class="col-md-4" id="divenfermedad">
+                                            <div class="form-group" id="nombreenfermedad1">
+                                                <label class="control-label">Enfermedad</label>
+                                                <input type="text" class="form-control" name="enfermedad1" id="enfermedad1" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad2">
+                                                <label class="control-label">Enfermedad Nº 2</label>
+                                                <input type="text" class="form-control" name="enfermedad2" id="enfermedad2" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad3">
+                                                <label class="control-label">Enfermedad Nº 3</label>
+                                                <input type="text" class="form-control" name="enfermedad3" id="enfermedad3" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad4">
+                                                <label class="control-label">Enfermedad Nº 4</label>
+                                                <input type="text" class="form-control" name="enfermedad4" id="enfermedad4" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad5">
+                                                <label class="control-label">Enfermedad Nº 5</label>
+                                                <input type="text" class="form-control" name="enfermedad5" id="enfermedad5" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="divtratamientoenfermedad">
+                                            <div class="form-group" id="tratamientoenfermedad1">
+                                                <label class="control-label">Tratamiento de la Enfermedad</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad1" id="tratamiento_enfermedad1" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad2">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 2</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad2" id="tratamiento_enfermedad2" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad3">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 3</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad3" id="tratamiento_enfermedad3" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad4">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 4</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad4" id="tratamiento_enfermedad4" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad5">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 5</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad5" id="tratamiento_enfermedad5" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <br><br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Discapacidad/es</label></h3></legend>
+                                        </fieldset>
+                                        <div class="col-md-4" id="divtipodiscapacidad">
+                                            <div class="form-group" id="tipodiscapacidad1">
+                                                <label class="control-label">Tipo de Discapacidad</label><br>
+                                                <select class="form-control" name="tipo_discapacidad1" id="tipo_discapacidad1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="divdiscapacidad">
+                                            <div class="form-group" id="nombrediscapacidad1">    
+                                                <label class="control-label">Discapacidad</label>
+                                                <input type="text" class="form-control" name="discapacidad1" id="discapacidad1"   value="<?php echo $this->_usuario[0]['discapacidadhija']; ?>"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Enfermedades y Discapacidades</button>
+                                        <br>
+                                    </div>
+                                     
+                                </h5></form>     
+                                </div>

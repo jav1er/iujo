@@ -1,0 +1,58 @@
+<?php $fechaactual = date('Y-m-d'); ?>
+<div class="row setup-content" id="step-3">
+                                <form action="<?php  echo BASE_URL;?>actuliacizacion/update" method="POST" role="form" class="col-md-9 go-right" name="modificardatosseguro" id="modificardatosseguro" ><h5>
+
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Datos del Seguro UPDATE</label></h3></legend>
+                                        </fieldset>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Seguro</label><br>
+                                                <select class="form-control" name="tipo_seguro1" id="tipo_seguro1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Seguro que posee">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Inicio de Valid&eacute;z del Seguro</label>
+                                                <input type="date" class="form-control" name="fecha_inicio_seguro1" id="fecha_inicio_seguro1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio de Valid&eacute;z del Seguro">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre del Seguro</label>
+                                                <input type="text" class="form-control" name="nombre_seguro1" id="nombre_seguro1" placeholder="Nombre del Seguro" data-toggle="tooltip" data-placement="bottom"  title="Ingrese el Nombre del Seguro que posee">
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Fin de Valid&eacute;z del Seguro</label>
+                                                <input type="date" class="form-control" name="fecha_fin_seguro1" id="fecha_fin_seguro1" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" min="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin de Valid&eacute;z del Seguro">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">N&uacute;mero de Poliza de Seguro</label>
+                                                <input type="text" class="form-control" name="numero_poliza1" id="numero_poliza1" placeholder="N&uacute;mero de Poliza de Seguro" data-toggle="tooltip" value=""  data-placement="bottom" title="Ingrese el N&uacute;mero de Poliza de Seguro">
+                                            </div>
+                                            <div class="form-group">
+                                                <br>
+                                                <label class="control-label">P&aacute;gina Web del Seguro</label>
+                                                <input type="text" class="form-control" name="pagina_web_seguro1" id="pagina_web_seguro1" placeholder="www.paginaseguro.com" data-toggle="tooltip" value="" data-placement="bottom" title="Ingrese la P&aacute;gina Web del Seguro">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Datos del Seguro</button>
+                                        <br>
+                                    </div>
+                                       
+                                </h5></form>   
+                                </div>

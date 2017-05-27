@@ -1,0 +1,664 @@
+    <?php $fechaactual = date('Y-m-d'); ?>
+
+    <link href="<?php echo PUBLIC_URL;?>css/cuadro" rel="stylesheet">
+            <!-- Navigation -->
+        
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <h1 class="page-header">Nueva Contrataci&oacute;n</h1>
+                    
+                        <div class="container">
+                            <div class="stepwizard">
+                           
+                                <div class="row">
+                                    <div class="stepwizard-row setup-panel">
+
+                                        <div class="stepwizard-step">
+                                            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                                        </div>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                                        </div>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                                        </div>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                                        </div>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled">5</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <form action="<?php  echo BASE_URL;?>personal/insertPersonal" method="POST" role="form" class="col-md-9 go-right" name="nuevacontratacionform" id="nuevacontratacion" ><h5>
+
+                                    <div class="row setup-content" id="step-1">
+                                        <div class="col-xs-12">
+
+                                            <fieldset>
+                                                <legend><h3><label class="control-label">Datos Personales</label></h3></legend>
+                                            </fieldset>
+                                            <br>
+
+                                            <div class="col-md-4">
+                                                
+                                                <div class="form-group" class="cssToolTip">
+                                                    <label class="control-label">C&eacute;dula de Identidad</label>
+                                                    <input type="text" class="form-control" name="cedula" id="cedula" min="1" placeholder="C&eacute;dula de Identidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la C&eacute;dula de Identidad">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Primer Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre1" id="nombre1" maxlength="100" placeholder="Primer Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Nombre">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Primer Apellido</label>
+                                                    <input type="text" class="form-control" name="apellido1" id="apellido1" maxlength="100" placeholder="Primer Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido">
+                                                </div>
+                                                <div class="form-group">
+                                                <?php
+                                                    $fechanacimientomax = strtotime('-15 year',strtotime($fechaactual));
+                                                    $fechanacimientomin = strtotime('-100 year',strtotime($fechaactual));
+                                                ?>
+                                                    <label class="control-label">Fecha de Nacimiento</label>
+                                                    <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" maxlength="100" placeholder="Fecha de Nacimiento" value="<?php echo date('Y-m-d',$fechanacimientomax); ?>" max="<?php echo date('Y-m-d',$fechanacimientomax); ?>" min="<?php echo date('Y-m-d',$fechanacimientomin); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Nacimiento">
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="col-md-4">
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label">Estado Civ&iacute;l</label><br>
+                                                    <select class="form-control" name="estado_civil" id="estado_civil" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estado Civ&iacute;l">
+  
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Segundo Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre2" id="nombre2" maxlength="100" placeholder="Segundo Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Nombre">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Segundo Apellido</label>
+                                                    <input type="text" class="form-control" name="apellido2" id="apellido2" maxlength="100" placeholder="Segundo Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido">
+                                                </div>
+                                                 <div class="form-group">
+                                                    <label class="control-label">G&eacute;nero</label><br>
+                                                    <select class="form-control" name="sexo" id="sexo" data-toggle="tooltip" data-placement="bottom" title="Seleccione el G&eacute;nero">
+                                                       
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-5 form-group">
+                                                <label class="control-label">Correo Electr&oacute;nico</label>
+                                                <input type="text" class="form-control" name="correo1" id="correo1" placeholder="cuenta@ejemplo.com" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Correo Electr&oacute;nico">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4" id="divcodigoarea">
+                                                <div class="form-group" id="codigoarea1">
+                                                    <label class="control-label">C&oacute;digo de &Aacute;rea</label><br>
+                                                    <select class="form-control" name="codigo_area1" id="codigo_tlf1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                          
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" id="divnumerotelefono">
+                                                <div class="form-group" id="numerotelefono1">
+                                                    <label class="control-label">N&uacute;mero de Tel&eacute;fono</label><br>
+                                                    <input type="text" class="form-control" name="telefono1" id="telefono1" placeholder="N&uacute;mero de Tel&eacute;fono" data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2" id="divagregartelefono">
+                                                <div class="form-group" id="agregartelefono1">
+                                                    <br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarTelefono('1','Personal')"><span class="glyphicon glyphicon-plus"></span></button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4" id="divtiporedsocial">
+                                                <div class="form-group" id="tiporedsocial1">
+                                                    <label class="control-label">Red Social</label>
+                                                    <select class="form-control" name="tipo_red_social1" id="tipo_social1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Red Social">
+                                                           
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" id="divcuentaredsocial">
+                                                <div class="form-group" id="cuentaredsocial1">
+                                                    <label class="control-label">Cuenta</label>
+                                                    <input type="text" class="form-control" name="red_social1" id="red_social1" placeholder="cuenta@ejemplo.com" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Cuenta de Red Social">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" id="divagregarredsocial">
+                                                <div class="form-group" id="agregarredsocial1">
+                                                    <br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarRedsocial('1','Personal')"><span class="glyphicon glyphicon-plus"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label class="control-label">Lugar de Nacimiento</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">Estado</label>
+                                                <select class="form-control" name="estado_nacimiento" id="estado" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estado de Nacimiento">
+                                            
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">Municipio</label>
+                                                <select class="form-control" name="municipio_nacimiento" id="municipio" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Municipio de Nacimiento">
+
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label  class="control-label">Direcci&oacute;n de Casa/Departamento</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">Estado</label><br>
+                                                <select class="form-control" name="estado_casa" id="estado1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estado donde reside">
+                                                   
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">Municipio</label><br>
+                                                <select class="form-control" name="municipio_casa" id="municipio1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Municipio donde reside">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">Parroquia</label><br>
+                                                <select class="form-control" name="parroquia_casa" id="parroquia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Parroquia donde reside">
+                                                    
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label">Direcci&oacute;n Exacta Donde Reside</label><br>
+                                                <textarea class="form-control" name="direccion_casa" id="direccion_casa" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Direcci&oacute;n Exacta donde reside"></textarea>
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row setup-content" id="step-2">
+
+                                        <div class="col-xs-12">
+                                            <h3>Enfermedades, Discapacidades y Datos del Seguro</h3>
+                                            <br>
+
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label class="control-label">Enfermedad/es</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4" id="divenfermedad">
+                                                <div class="form-group" id="nombreenfermedad1">
+                                                    <label class="control-label">Enfermedad</label>
+                                                    <input type="text" class="form-control" name="enfermedad1" id="enfermedad1" placeholder="Nombre de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" id="divtratamientoenfermedad">
+                                                <div class="form-group" id="tratamientoenfermedad1">
+                                                    <label class="control-label">Tratamiento de la Enfermedad</label>
+                                                    <textarea class="form-control" name="tratamiento_enfermedad1" id="tratamiento_enfermedad1" placeholder="Tratamiento de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" id="divagregarenfermedad">
+                                                <div class="form-group" id="agregarenfermedad1">
+                                                    <br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarEnfermedad('1','Personal')"><span class="glyphicon glyphicon-plus"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label class="control-label">Discapacidad/es</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4" id="divtipodiscapacidad">
+                                                <div class="form-group" id="tipodiscapacidad1">
+                                                    <label class="control-label">Tipo de Discapacidad</label><br>
+                                                    <select class="form-control" name="tipo_discapacidad1" id="tipo_discapacidad1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" id="divdiscapacidad">
+                                                <div class="form-group" id="nombrediscapacidad1">    
+                                                    <label class="control-label">Discapacidad</label>
+                                                    <input type="text" class="form-control" name="discapacidad1" id="discapacidad1"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" id="divagregardiscapacidad">
+                                                <div class="form-group" id="agregardiscapacidad1">
+                                                    <br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarDiscapacidad('1','Personal')"><span class="glyphicon glyphicon-plus"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label class="control-label">Datos del Seguro</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Tipo de Seguro</label><br>
+                                                    <select class="form-control" name="tipo_seguro1" id="tipo_seguro1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Seguro que posee">
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Fecha de Inicio de Valid&eacute;z del Seguro</label>
+                                                    <input type="date" class="form-control" name="fecha_inicio_seguro1" id="fecha_inicio_seguro1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio de Valid&eacute;z del Seguro">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Nombre del Seguro</label>
+                                                    <input type="text" class="form-control" name="nombre_seguro1" id="nombre_seguro1" placeholder="Nombre del Seguro" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Nombre del Seguro que posee">
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label class="control-label">Fecha de Fin de Valid&eacute;z del Seguro</label>
+                                                    <input type="date" class="form-control" name="fecha_fin_seguro1" id="fecha_fin_seguro1" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" min="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin de Valid&eacute;z del Seguro">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">N&uacute;mero de Poliza de Seguro</label>
+                                                    <input type="text" class="form-control" name="numero_poliza1" id="numero_poliza1" placeholder="N&uacute;mero de Poliza de Seguro" data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Poliza de Seguro">
+                                                </div>
+                                                <div class="form-group">
+                                                    <br>
+                                                    <label class="control-label">P&aacute;gina Web del Seguro</label>
+                                                    <input type="text" class="form-control" name="pagina_web_seguro1" id="pagina_web_seguro1" placeholder="www.paginaseguro.com" data-toggle="tooltip" data-placement="bottom" title="Ingrese la P&aacute;gina Web del Seguro">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button>
+                                        </div>
+                                              
+                                    </div>
+                                    <div class="row setup-content" id="step-3">
+
+                                        <div class="col-xs-12">
+                                            <br>
+                                            <h3>Referencias Personales</h3>
+                                        </div>
+                                        <div class="col-xs-12" id="divdatos1ref1">
+                                            <br><br>
+                                            <fieldset>
+                                                <legend><h4><label class="control-label">Referencia Nº 1</label></h4></legend>
+                                            </fieldset>
+                                            <br>
+                                            
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">Parentesco</label><br>
+                                                <select class="form-control" name="nexo1" id="nexo1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Parentesco entre el nuevo personal y la referencia a ingresar">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="control-label">G&eacute;nero</label><br>
+                                                <select class="form-control" name="sexo_referencia1" id="sexo_referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el G&eacute;nero de la referencia">
+                                                   
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12" id="divdatos2ref1">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <?php $fechanacimientoreferenciamin = strtotime('-100 year',strtotime($fechaactual)); ?>
+                                                    <label class="control-label">Fecha de Nacimiento</label>
+                                                    <input type="date" class="form-control" name="fecha_nacimiento_referencia1" id="fecha_nacimiento_referencia1" max="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" min="<?php echo date('Y-m-d',$fechanacimientoreferenciamin); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Nacimiento de la referencia">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Primer Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre1_referencia1" id="nombre1_referencia1" placeholder="Primer Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Nombre de la referencia">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Primer Apellido</label>
+                                                    <input type="text" class="form-control" name="apellido1_referencia1" id="apellido1_referencia1" placeholder="Primer Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido de la referencia">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">C&eacute;dula de Identidad</label>
+                                                    <input type="text" class="form-control" name="cedula_referencia1" id="cedula_referencia1" min="1" placeholder="C&eacute;dula de Identidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la C&eacute;dula de Identidad de la referencia">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Segundo Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre2_referencia1" id="nombre2_referencia1" placeholder="Segundo Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Nombre de la referencia">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Segundo Apellido</label>
+                                                    <input type="text" class="form-control" name="apellido2_referencia1" id="apellido2_referencia1" placeholder="Segundo Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Apellido de la referencia">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div class="col-xs-12" id="divdatos3ref1">
+                                            <div class="col-md-5 form-group">
+                                                <label class="control-label">Correo Electr&oacute;nico</label>
+                                                <input type="text" class="form-control" name="correoreferencia1" id="correoreferencia1" placeholder="cuenta@ejemplo.com" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Correo Electr&oacute;nico de la referencia">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12" id="divdatos4ref1">
+
+                                            <div class="col-md-4" id="divcodigoareareferencia1">
+                                                <div class="form-group" id="codigoarea1referencia1">
+                                                    <label class="control-label">C&oacute;digo de &Aacute;rea</label><br>
+                                                    <select class="form-control" name="codigo_area1" id="codigo_tlf1referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                          
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" id="divnumerotelefonoreferencia1">
+                                                <div class="form-group" id="numerotelefono1referencia1">
+                                                    <label class="control-label">N&uacute;mero de Tel&eacute;fono</label><br>
+                                                    <input type="text" class="form-control" name="telefono1" id="telefono1" placeholder="N&uacute;mero de Tel&eacute;fono" data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2" id="divagregartelefonoreferencia1">
+                                                <div class="form-group" id="agregartelefono1referencia1">
+                                                    <br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarTelefono('1','Referencia1')"><span class="glyphicon glyphicon-plus"></span></button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-xs-12" id="divdatos5ref1">
+
+                                            <div class="col-md-4" id="divtipodiscapacidadreferencia1">
+                                                <div class="form-group" id="tipodiscapacidad1referencia1">
+                                                    <label class="control-label">Tipo de Discapacidad</label><br>
+                                                    <select class="form-control" name="tipo_discapacidad1referencia1" id="tipo_discapacidad1referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee la referencia">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" id="divdiscapacidadreferencia1">
+                                                <div class="form-group" id="nombrediscapacidad1referencia1">    
+                                                    <label class="control-label">Discapacidad</label>
+                                                    <input type="text" class="form-control" name="discapacidad1referencia1" id="discapacidad1referencia1"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee la referencia">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" id="divagregardiscapacidadreferencia1">
+                                                <div class="form-group" id="agregardiscapacidadreferencia1">
+                                                    <br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarDiscapacidad('1','Referencia1')"><span class="glyphicon glyphicon-plus"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12" id="divagregarreferencia1">
+                                            <center id="agregarreferencia1">
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarReferencia('1')">Agregar Otra Referencia</button>
+                                            </center>
+                                        </div>
+
+                                        <div class="col-xs-12" id="divsiguiente1">
+                                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button>
+                                        </div>
+
+                                    </div>
+                                    <div class="row setup-content" id="step-4">
+
+                                        <div class="col-xs-12">
+                                            <h3>Formaci&oacute;n Acad&eacute;mica</h3>
+                                            <br>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Tipo de Formaci&oacute;n</label><br>
+                                                    <select class="form-control" name="tipo_formacion1" id="formacion_academica1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Formaci&oacute;n">
+                                                       
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Estatus de la Formaci&oacute;n</label><br>
+                                                    <select class="form-control" name="estatus_formacion1" id="status_formacion1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estatus de la Formaci&oacute;n">
+                                
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group" id="campos">
+                                            
+                                        </div>
+                                        
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12">
+                                                <center id="agregarformacion">
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarFormacion('1')"><span class="glyphicon glyphicon-plus">Agregar Otra<br>Formaci&oacute;n</span></button>
+                                                </center>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Siguiente</button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row setup-content" id="step-5">
+
+                                        <div class="col-xs-12">
+                                            <h3>Cl&aacute;usulas de la Contrataci&oacute;n</h3>
+                                            <br>
+
+                                            <div class="col-md-4">
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label">Tipo de Personal</label><br>
+                                                    <select class="form-control" name="tipo_personal" id="tipo_empleado" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Personal">
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Tipo de Sueldo</label><br>
+                                                    <select class="form-control" name="tipo_sueldo" id="salarios" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Sueldo del contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                        
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Tipo de Contrato</label>
+                                                    <select class="form-control" name="tipo_contrato" id="tipo_contratacion" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Sueldo</label>
+                                                    <input type="number" class="form-control" name="sueldo" id="sueldo" step="0.01" min="0.01" placeholder="Sueldo a Devengar" data-toggle="tooltip" data-placement="bottom" title="Ingrese el sueldo a devengar">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Departamento</label>
+                                                    <select class="form-control" name="departamento" id="departamento" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Departamento Donde se Ejercer&aacute; el Cargo">
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Cargo a Ejercer</label><br>
+                                                    <select class="form-control" name="cargo" id="cargo" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Cargo a ejercer">
+                                                       
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Horas Trabajadas por Mes</label>
+                                                    <input type="number" class="form-control" name="horas_mensuales_trabajadas" id="horas_mensuales_trabajadas" min="1" placeholder="Horas Trabajadas por Mes" data-toggle="tooltip" data-placement="bottom" title="Ingrese las Horas Trabajadas por Mes">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Fecha de Inicio de Contrato</label>
+                                                    <input type="date" class="form-control" name="fecha_inicio_contrato" id="fecha_inicio_contrato" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio del Contrato">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Fecha de Fin de Contrato</label>
+                                                    <input type="date" class="form-control" name="fecha_fin_contrato" id="fecha_fin_contrato" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin del Contrato">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <br><br>
+                                            <fieldset>
+                                                <legend><h4><label class="control-label">Asignaci&oacute;n de Materias</label></h4></legend>
+                                            </fieldset>
+
+                                            <div class="col-md-4" id="divperiodosemestre">
+                                                <div class="form-group" id="formperiodoacademico1">
+                                                    <label class="control-label">Per&iacute;odo Acad&eacute;mico</label><br>
+                                                    <select class="form-control" name="periodo_academico1" id="periodo_academico1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Per&iacute;odo Acad&eacute;mico de la materia dictada">
+                                                       
+                                                    </select>
+                                                </div>
+                                                <div class="form-group" id="formsemestre1">
+                                                    <label class="control-label">Semestre</label><br>
+                                                    <select class="form-control" name="semestre1" id="semestre1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Semestre de la materia dictada">
+                                                      
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" id="divcarreramateria">
+                                                <div class="form-group" id="formcarrera1">
+                                                    <label class="control-label">Carrera</label><br>
+                                                    <select class="form-control" name="carrera1" id="carrera1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Carrera de la materia dictada">
+                                                       
+                                                    </select>
+                                                </div>
+                                                <div class="form-group" id="formmateria1">
+                                                    <label class="control-label">Materia</label><br>
+                                                    <select class="form-control" name="materia1" id="materia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Materia dictada">
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" id="divagregarmateria">
+                                                <div class="form-group" id="agregarmateria1">
+                                                    <br><br><br><br>
+                                                    <button type="button" class="btn btn-info btn-sm" onclick="agregarMateria('1')"><span class="glyphicon glyphicon-plus"></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <button type="submit" class="btn btn-success btn-lg pull-right" name="crearcontratacion" id="crearcontratacion">Crear Contrataci&oacute;n</button>
+                                        </div>
+
+                                    </div>
+
+                                </h5></form>
+
+                            </div>
+                        </div>
+                    <!-- /.col-lg-12 -->
+
+                    </div>
+                <!-- /.row -->
+                </div>
+            <!-- /.container-fluid -->
+            </div>
+        <!-- /#page-wrapper -->
+        <!-- no borrar -->
+        </div>
+
+    
+    
+                
+                    
+                    
+                    
+                    

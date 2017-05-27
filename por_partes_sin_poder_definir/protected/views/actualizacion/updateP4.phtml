@@ -1,0 +1,130 @@
+  <?php $fechaactual = date('Y-m-d'); ?>
+<div class="row setup-content" id="step-4">
+                                <form action="<?php  echo BASE_URL;?>personal/up_referencias" method="POST" role="form" class="col-md-9 go-right" name="modificarreferencias" id="modificarreferencias"><h5>
+                                    
+                                    <div class="col-xs-12">
+                                        <h3>Referencias Personales UP</h3>
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos1ref1">
+                                        <br><br>
+                                        <fieldset>
+                                            <legend><h4><label class="control-label">Referencia Nº 1</label></h4></legend>
+                                        </fieldset>
+                                        <br>
+                                        
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Parentesco</label><br>
+                                            <select class="form-control" name="nexo1" id="nexo1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Parentesco entre el nuevo personal y la referencia a ingresar">
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">G&eacute;nero</label><br>
+                                            <select class="form-control" name="sexo_referencia1" id="sexo_referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el G&eacute;nero de la referencia">
+                                               
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos2ref1">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <?php $fechanacimientoreferenciamin = strtotime('-100 year',strtotime($fechaactual)); ?>
+                                                <label class="control-label">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control" name="fecha_nacimiento_referencia1" id="fecha_nacimiento_referencia1" max="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" min="<?php echo date('Y-m-d',$fechanacimientoreferenciamin); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Nacimiento de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Nombre</label>
+                                                <input type="text" class="form-control" name="nombre1_referencia2" id="nombre1_referencia1" placeholder="Primer Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Nombre de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="apellido1_referencia1" id="apellido1_referencia1" placeholder="Primer Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido de la referencia">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">C&eacute;dula de Identidad</label>
+                                                <input type="text" class="form-control" name="cedula_referencia1" id="cedula_referencia1" min="1" placeholder="C&eacute;dula de Identidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la C&eacute;dula de Identidad de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Nombre</label>
+                                                <input type="text" class="form-control" name="nombre2_referencia2" id="nombre2_referencia1" placeholder="Segundo Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Nombre de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Apellido</label>
+                                                <input type="text" class="form-control" name="apellido2_referencia1" id="apellido2_referencia1" placeholder="Segundo Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Apellido de la referencia">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="col-xs-12" id="divdatos3ref1">
+                                        <div class="col-md-5 form-group">
+                                            <label class="control-label">Correo Electr&oacute;nico</label>
+                                            <input type="text" class="form-control" name="correoreferencia1" id="correoreferencia1" placeholder="cuenta@ejemplo.com" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Correo Electr&oacute;nico de la referencia">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos4ref1">
+
+                                        <div class="col-md-4" id="divcodigoareareferencia1">
+                                            <div class="form-group" id="codigoarea1referencia1">
+                                                <label class="control-label">C&oacute;digo de &Aacute;rea</label><br>
+                                                <select class="form-control" name="codigo_area1" id="codigo_tlf1referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                      
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" id="divnumerotelefonoreferencia1">
+                                            <div class="form-group" id="numerotelefono1referencia1">
+                                                <label class="control-label">N&uacute;mero de Tel&eacute;fono</label><br>
+                                                <input type="text" class="form-control" name="telefono1" id="telefono1" placeholder="N&uacute;mero de Tel&eacute;fono" data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2" id="divagregartelefonoreferencia1">
+                                            <div class="form-group" id="agregartelefono1referencia1">
+                                                <br>
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarTelefono('1','Referencia1')"><span class="glyphicon glyphicon-plus"></span></button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos5ref1">
+
+                                        <div class="col-md-4" id="divtipodiscapacidadreferencia1">
+                                            <div class="form-group" id="tipodiscapacidad1referencia1">
+                                                <label class="control-label">Tipo de Discapacidad</label><br>
+                                                <select class="form-control" name="tipo_discapacidad1referencia1" id="tipo_discapacidad1referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee la referencia">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="divdiscapacidadreferencia1">
+                                            <div class="form-group" id="nombrediscapacidad1referencia1">    
+                                                <label class="control-label">Discapacidad</label>
+                                                <input type="text" class="form-control" name="discapacidad1referencia2" id="discapacidad1referencia1"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee la referencia">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2" id="divagregardiscapacidadreferencia1">
+                                            <div class="form-group" id="agregardiscapacidadreferencia1">
+                                                <br>
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarDiscapacidad('1','Referencia1')"><span class="glyphicon glyphicon-plus"></span></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12" id="divagregarreferencia1">
+                                        <center id="agregarreferencia1">
+                                            <button type="button" class="btn btn-info btn-sm" onclick="agregarReferencia('1')">Agregar Otra Referencia</button>
+                                        </center>
+                                    </div>
+
+                                    <div class="col-xs-12" id="divsiguiente1">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Referencias</button>
+                                    </div>
+
+                                </h5></form>
+                                </div>

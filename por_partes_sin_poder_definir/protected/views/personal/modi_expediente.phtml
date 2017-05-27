@@ -1,0 +1,920 @@
+    <?php $fechaactual = date('Y-m-d'); ?>
+
+    <link href="<?php echo PUBLIC_URL;?>css/cuadro" rel="stylesheet">
+            <!-- Navigation -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <h2 class="page-header">Modificar Datos de: <i><b><?php echo $this->_usuario[0]['nombre1personal']." ".$this->_usuario[0]['apellido1personal']; ?></b><?php echo ". ID Nº "; ?><b><?php echo $this->_usuario[0]['idpersonal'] ?></b><?php "."; ?> </i></h2>
+                    
+                        <div class="container">
+                            <div class="">
+                           
+                                <div class="row">
+                                    <div class="stepwizard-row setup-panel">
+
+                                        <div class="stepwizard-step">
+                                            <a href="javascript:void(0)" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Datos Personales" data-view="dpto_admin_1">1</a>
+                                        </div>
+                                        <br>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-2" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Enfermedades y Discapacidades" data-view="dpto_admin_2">2</a>
+                                        </div>
+                                        <br>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-3" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Datos del Seguro" data-view="dpto_admin_3">3</a>
+                                        </div>
+                                        <br>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-4" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Referencias Personales" data-view="dpto_admin_1">4</a>
+                                        </div>
+                                        <br>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-5" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Formaci&oacute;n Acad&eacute;mica" data-view="dpto_admin_1">5</a>
+                                        </div>
+                                        <br>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-6" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Cl&aacute;usulas de la Contrataci&oacute;n" data-view="dpto_admin_1">6</a>
+                                        </div>
+                                        <br>
+                                        <div class="stepwizard-step">
+                                            <a href="#step-7" type="button" class="btn btn-warning btn-circle btnStepByUpdate" data-toggle="tooltip" data-placement="bottom" title="Salarios" data-view="dpto_admin_1">7</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row setup-content" id="step-1">
+                                <form action="<?php  echo BASE_URL;?>personal/up_datospersonales" method="POST" role="form" class="col-md-9 go-right" name="modificardatospersonales" id="modificardatospersonales"><h5>
+
+                                    <input type="hidden" name="idpersonal" id="idpersonal" value="<?php echo $this->_usuario[0]['idpersonal']; ?>">
+                                    <input type="hidden" name="cedula" id="cedula" value="<?php echo $this->_usuario[0]['cedulapersonal']; ?>">
+                                    <input type="hidden" name="tipo_personal" id="tipo_personal" value="<?php echo $this->_usuario[0]['idtipopersonapersonal']; ?>">
+                                <?php 
+                                    $idtelpuente1 = FALSE; $idtelpuente2 = FALSE; $idtelpuente3 = FALSE;
+                                    $separadoridtelefonopuente = substr_count($this->_usuario[0]['idtelefonopuente'],'----');
+                                    if ($separadoridtelefonopuente == 2) {
+                                        list($idtelpuente1,$idtelpuente2,$idtelpuente3) = explode('----',$this->_usuario[0]['idtelefonopuente']);
+                                    } else if ($separadoridtelefonopuente == 1) {
+                                        list($idtelpuente1,$idtelpuente2) = explode('----',$this->_usuario[0]['idtelefonopuente']);
+                                    } else {
+                                        list($idtelpuente1) = explode('----',$this->_usuario[0]['idtelefonopuente']);
+                                    }
+                                    
+                                    $idtel1 = FALSE; $idtel2 = FALSE; $idtel3 = FALSE; 
+                                    $separadoridtelefono = substr_count($this->_usuario[0]['idtelefono'],'----');
+                                    if ($separadoridtelefono == 2) {
+                                        list($idtel1,$idtel2,$idtel3) = explode('----',$this->_usuario[0]['idtelefono']);
+                                    } else if ($separadoridtelefono == 1) {
+                                        list($idtel1,$idtel2) = explode('----',$this->_usuario[0]['idtelefono']);
+                                    } else {
+                                        list($idtel1) = explode('----',$this->_usuario[0]['idtelefono']);
+                                    }
+                                    
+                                    $idcodigoareau1 = FALSE; $idcodigoareau2 = FALSE; $idcodigoareau3 = FALSE;
+                                    $separadoridcodigoarea = substr_count($this->_usuario[0]['idcodigoarea'],'----');
+                                    if ($separadoridcodigoarea == 2) {
+                                        list($idcodigoareau1,$idcodigoareau2,$idcodigoareau3) = explode('----',$this->_usuario[0]['idcodigoarea']);
+                                    } else if ($separadoridcodigoarea == 1) {
+                                        list($idcodigoareau1,$idcodigoareau2) = explode('----',$this->_usuario[0]['idcodigoarea']);
+                                    } else {
+                                        list($idcodigoareau1) = explode('----',$this->_usuario[0]['idcodigoarea']);
+                                    }
+                                    
+                                    $telefonou1 = FALSE; $telefonou2 = FALSE; $telefonou3 = FALSE;
+                                    $separadortelefono = substr_count($this->_usuario[0]['telefono'],'----');
+                                    if ($separadortelefono == 2) {
+                                        list($telefonou1,$telefonou2,$telefonou3) = explode('----',$this->_usuario[0]['telefono']);
+                                    } else if ($separadortelefono == 1) {
+                                        list($telefonou1,$telefonou2) = explode('----',$this->_usuario[0]['telefono']);
+                                    } else {
+                                        list($telefonou1) = $this->_usuario[0]['telefono'];
+                                    }
+
+                                    if (isset($idtelpuente1) && isset($idtel1)) { 
+                                ?>
+                                    <input type="hidden" name="idtelpuente1" id="idtelpuente1" value="<?php echo $idtelpuente1; ?>">
+                                    <input type="hidden" name="idtel1" id="idtel1" value="<?php echo $idtel1; ?>">
+                                    <input type="hidden" name="telefonou1" id="telefonou1" value="<?php echo $telefonou1; ?>">
+                                    <input type="hidden" name="idcodigoareau1" id="idcodigoareau1" value="<?php echo $idcodigoareau1; ?>">
+                                <?php } if (isset($idtelpuente2) && isset($idtel2)) { ?>
+                                    <input type="hidden" name="idtelpuente2" id="idtelpuente2" value="<?php echo $idtelpuente2; ?>">
+                                    <input type="hidden" name="idtel2" id="idtel2" value="<?php echo $idtel2; ?>">
+                                    <input type="hidden" name="telefonou2" id="telefonou2" value="<?php echo $telefonou2; ?>">
+                                    <input type="hidden" name="idcodigoareau2" id="idcodigoareau2" value="<?php echo $idcodigoareau2; ?>">
+                                <?php } if (isset($idtelpuente3) && isset($idtel3)) { ?>
+                                    <input type="hidden" name="idtelpuente3" id="idtelpuente3" value="<?php echo $idtelpuente3; ?>">
+                                    <input type="hidden" name="idtel3" id="idtel3" value="<?php echo $idtel3; ?>">
+                                    <input type="hidden" name="telefonou3" id="telefonou3" value="<?php echo $telefonou3; ?>">
+                                    <input type="hidden" name="idcodigoareau3" id="idcodigoareau3" value="<?php echo $idcodigoareau3; ?>">
+                                <?php } 
+                                    $idredspuente1 = FALSE; $idredspuente2 = FALSE; $idredspuente3 = FALSE;
+                                    $separadoridredsocialpuente = substr_count($this->_usuario[0]['idredsocialpuente'],'----');
+                                    if ($separadoridredsocialpuente == 2) {
+                                        list($idredspuente1,$idredspuente2,$idredspuente3) = explode('----', $this->_usuario[0]['idredsocialpuente']);
+                                    } else if ($separadoridredsocialpuente == 1) {
+                                        list($idredspuente1,$idredspuente2) = explode('----', $this->_usuario[0]['idredsocialpuente']);
+                                    } else {
+                                        list($idredspuente1) = explode('----', $this->_usuario[0]['idredsocialpuente']);
+                                    }
+
+                                    $idreds1 = FALSE; $idreds2 = FALSE; $idreds3 = FALSE;
+                                    $separadoridcuentaredsocial = substr_count($this->_usuario[0]['idcuentaredsocial'],'----');
+                                    if ($separadoridcuentaredsocial == 2) {
+                                        list($idreds1,$idreds2,$idreds3) = explode('----', $this->_usuario[0]['idcuentaredsocial']);
+                                    } else if ($separadoridcuentaredsocial == 1) {
+                                        list($idreds1,$idreds2) = explode('----', $this->_usuario[0]['idcuentaredsocial']);
+                                    } else {
+                                        list($idreds1) = explode('----', $this->_usuario[0]['idcuentaredsocial']);
+                                    }
+
+                                    $idtiporedsu1 = FALSE; $idtiporedsu2 = FALSE; $idtiporedsu3 = FALSE;
+                                    $separadoridtiporedsocial = substr_count($this->_usuario[0]['idtiporedsocial'],'----');
+                                    if ($separadoridtiporedsocial == 2) {
+                                        list($idtiporedsu1,$idtiporedsu2,$idtiporedsu3) = explode('----', $this->_usuario[0]['idtiporedsocial']);
+                                    } else if ($separadoridtiporedsocial == 1) {
+                                        list($idtiporedsu1,$idtiporedsu2) = explode('----', $this->_usuario[0]['idtiporedsocial']);
+                                    } else {
+                                        list($idtiporedsu1) = explode('----', $this->_usuario[0]['idtiporedsocial']);
+                                    }
+
+                                    $cuentaredsu1 = FALSE; $cuentaredsu2 = FALSE; $cuentaredsu3 = FALSE;
+                                    $separadorcuentaredsocial = substr_count($this->_usuario[0]['cuentaredsocial'],'----');
+                                    if ($separadorcuentaredsocial == 2) {
+                                        list($cuentaredsu3,$cuentaredsu2,$cuentaredsu1) = explode('----',$this->_usuario[0]['cuentaredsocial']);
+                                    } else if ($separadorcuentaredsocial == 1) {
+                                        list($cuentaredsu3,$cuentaredsu2) = explode('----',$this->_usuario[0]['cuentaredsocial']);
+                                    } else {
+                                        list($cuentaredsu3) = explode('----',$this->_usuario[0]['cuentaredsocial']);
+                                    }
+
+                                    if (isset($idredspuente1) && isset($idreds1)) {
+                                ?>
+                                    <input type="hidden" name="idredspuente1" id="idredspuente1" value="<?php echo $idredspuente1; ?>">
+                                    <input type="hidden" name="idreds1" id="idreds1" value="<?php echo $idreds1; ?>">
+                                    <input type="hidden" name="idtiporeds1" id="idtiporeds1" value="<?php echo $idtiporeds1; ?>">
+                                    <input type="hidden" name="cuentaredsu1" id="cuentaredsu1" value="<?php echo $cuentaredsu1; ?>">
+                                <?php } if (isset($idredspuente2) && isset($idreds2)) { ?>
+                                    <input type="hidden" name="idredspuente2" id="idredspuente2" value="<?php echo $idredspuente2; ?>">
+                                    <input type="hidden" name="idreds2" id="idreds2" value="<?php echo $idreds2; ?>">
+                                    <input type="hidden" name="idtiporeds2" id="idtiporeds2" value="<?php echo $idtiporeds2; ?>">
+                                    <input type="hidden" name="cuentaredsu2" id="cuentaredsu2" value="<?php echo $cuentaredsu2; ?>">
+                                <?php } if (isset($idredspuente3) && isset($idreds3)) { ?>
+                                    <input type="hidden" name="idredspuente3" id="idredspuente3" value="<?php echo $idredspuente3; ?>">
+                                    <input type="hidden" name="idreds3" id="idreds3" value="<?php echo $idreds3; ?>">
+                                    <input type="hidden" name="idtiporeds3" id="idtiporeds3" value="<?php echo $idtiporeds3; ?>">
+                                    <input type="hidden" name="cuentaredsu3" id="cuentaredsu3" value="<?php echo $cuentaredsu3; ?>">
+                                <?php } ?>
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Datos Personales</label></h3></legend>
+                                        </fieldset>
+                                        <br>
+
+                                        <div class="col-md-4">
+                                            
+                                            <div class="form-group" class="cssToolTip">
+                                                <label class="control-label">C&eacute;dula de Identidad</label>
+                                                <input type="text" class="form-control" name="cedula" id="cedula" min="1" placeholder="C&eacute;dula de Identidad" value="<?php echo $this->_usuario[0]['cedulapersonal']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la C&eacute;dula de Identidad">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Nombre</label>
+                                                <input type="text" class="form-control" name="nombre1" id="nombre1" maxlength="100" placeholder="Primer Nombre" value="<?php echo $this->_usuario[0]['nombre1personal']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Nombre">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="apellido1" id="apellido1" maxlength="100" placeholder="Primer Apellido" value="<?php echo $this->_usuario[0]['apellido1personal']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido">
+                                            </div>
+                                            <div class="form-group">
+                                            <?php
+                                                $fechanacimientomax = strtotime('-15 year',strtotime($fechaactual));
+                                                $fechanacimientomin = strtotime('-100 year',strtotime($fechaactual));
+                                            ?>
+                                                <label class="control-label">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" maxlength="100" placeholder="Fecha de Nacimiento" value="<?php echo $this->_usuario[0]['fechanacimientopersonal']; ?>" max="<?php echo date('Y-m-d',$fechanacimientomax); ?>" min="<?php echo date('Y-m-d',$fechanacimientomin); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Nacimiento">
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="col-md-4">
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Estado Civ&iacute;l</label><br>
+                                                <select class="form-control" name="estado_civil" id="estado_civil" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estado Civ&iacute;l">
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Nombre</label>
+                                                <input type="text" class="form-control" name="nombre2" id="nombre2" maxlength="100" placeholder="Segundo Nombre" value="<?php echo $this->_usuario[0]['nombre2personal']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Nombre">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Apellido</label>
+                                                <input type="text" class="form-control" name="apellido2" id="apellido2" maxlength="100" placeholder="Segundo Apellido" value="<?php echo $this->_usuario[0]['apellido2personal']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido">
+                                            </div>
+                                             <div class="form-group">
+                                                <label class="control-label">G&eacute;nero</label><br>
+                                                <select class="form-control" name="sexo" id="sexo" data-toggle="tooltip" data-placement="bottom" title="Seleccione el G&eacute;nero">
+                                                   
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-md-5 form-group">
+                                            <label class="control-label">Correo Electr&oacute;nico</label>
+                                            <input type="text" class="form-control" name="correo1" id="correo1" placeholder="cuenta@ejemplo.com" value="<?php echo $this->_usuario[0]['correopersonal']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Correo Electr&oacute;nico">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4" id="divcodigoarea">
+                                    <?php if ($idcodigoareau1 != FALSE && $telefonou1 != FALSE) { ?>
+                                            <div class="form-group" id="codigoarea1">
+                                                <label class="control-label">C&oacute;digo de &Aacute;rea</label><br>
+                                                <select class="form-control" name="codigo_area1" id="codigo_tlf1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                      
+                                                </select>
+                                            </div>
+                                    <?php } if ($idcodigoareau2 != FALSE && $telefonou2 != FALSE) { ?>
+                                            <div class="form-group" id="codigoarea2">
+                                                <label class="control-label">C&oacute;digo de &Aacute;rea Nº 2</label><br>
+                                                <select class="form-control" name="codigo_area2" id="codigo_tlf2" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                    
+                                                </select>
+                                            </div>
+                                    <?php } if ($idcodigoareau3 != FALSE && $telefonou3 != FALSE) { ?>
+                                            <div class="form-group" id="codigoarea3">
+                                                <label class="control-label">C&oacute;digo de &Aacute;rea Nº 3</label><br>
+                                                <select class="form-control" name="codigo_area3" id="codigo_tlf3" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                      
+                                                </select>
+                                            </div>
+                                    <?php } ?>
+                                        </div>
+                                        <div class="col-md-4" id="divnumerotelefono">
+                                    <?php if ($idcodigoareau1 != FALSE && $telefonou1 != FALSE) { ?>
+                                            <div class="form-group" id="numerotelefono1">
+                                                <label class="control-label">N&uacute;mero de Tel&eacute;fono</label><br>
+                                                <input type="text" class="form-control" name="telefono1" id="telefono1" placeholder="N&uacute;mero de Tel&eacute;fono"  value="<?php echo $telefonou1; ?>"  data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                            </div>
+                                    <?php } if ($idcodigoareau2 != FALSE && $telefonou2 != FALSE) { ?>
+                                            <div class="form-group" id="numerotelefono2">
+                                                <label class="control-label">N&uacute;mero de Tel&eacute;fono Nº 2</label><br>
+                                                <input type="text" class="form-control" name="telefono2" id="telefono2" placeholder="N&uacute;mero de Tel&eacute;fono"  value="<?php echo $telefonou2; ?>"  data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                            </div>
+                                    <?php } if ($idcodigoareau3 != FALSE && $telefonou3 != FALSE) { ?>
+                                            <div class="form-group" id="numerotelefono3">
+                                                <label class="control-label">N&uacute;mero de Tel&eacute;fono Nº 3</label><br>
+                                                <input type="text" class="form-control" name="telefono3" id="telefono3" placeholder="N&uacute;mero de Tel&eacute;fono"  value="<?php echo $telefonou3; ?>"  data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                            </div>
+                                    <?php } ?>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-md-4" id="divtiporedsocial">
+                                        <?php if ($idtiporedsu1 != FALSE && $cuentaredsu1 != FALSE) { ?>
+                                            <div class="form-group" id="tiporedsocial1">
+                                                <label class="control-label">Red Social</label>
+                                                <select class="form-control" name="tipo_red_social1" id="tipo_social1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Red Social">
+                                                       
+                                                </select>
+                                            </div>
+                                        <?php } if ($idtiporedsu2 != FALSE && $cuentaredsu2 != FALSE) { ?>
+                                            <div class="form-group" id="tiporedsocial2">
+                                                <label class="control-label">Red Social Nº 2</label>
+                                                <select class="form-control" name="tipo_red_social2" id="tipo_social2" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Red Social">
+                                                       
+                                                </select>
+                                            </div>
+                                        <?php } if ($idtiporedsu3 != FALSE && $cuentaredsu3 != FALSE) { ?>
+                                            <div class="form-group" id="tiporedsocial3">
+                                                <label class="control-label">Red Social Nº 3</label>
+                                                <select class="form-control" name="tipo_red_social3" id="tipo_social3" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Red Social">
+                                                       
+                                                </select>
+                                            </div>
+                                        <?php } ?>
+                                        </div>
+                                        <div class="col-md-4" id="divcuentaredsocial">
+                                        <?php if ($idtiporedsu1 != FALSE && $cuentaredsu1 != FALSE) { ?>
+                                            <div class="form-group" id="cuentaredsocial1">
+                                                <label class="control-label">Cuenta</label>
+                                                <input type="text" class="form-control" name="red_social1" id="red_social1" placeholder="cuenta@ejemplo.com" value="<?php echo $cuentaredsu1; ?>"  data-toggle="tooltip" data-placement="bottom" title="Ingrese la Cuenta de Red Social">
+                                            </div>
+                                        <?php } if ($idtiporedsu2 != FALSE && $cuentaredsu2 != FALSE) { ?>
+                                            <div class="form-group" id="cuentaredsocial2">
+                                                <label class="control-label">Cuenta Nº 2</label>
+                                                <input type="text" class="form-control" name="red_social2" id="red_social2" placeholder="cuenta@ejemplo.com" value="<?php echo $cuentaredsu2; ?>"  data-toggle="tooltip" data-placement="bottom" title="Ingrese la Cuenta de Red Social">
+                                            </div>
+                                        <?php } if ($idtiporedsu3 != FALSE && $cuentaredsu3 != FALSE) { ?>
+                                            <div class="form-group" id="cuentaredsocial3">
+                                                <label class="control-label">Cuenta Nº 3</label>
+                                                <input type="text" class="form-control" name="red_social3" id="red_social3" placeholder="cuenta@ejemplo.com" value="<?php echo $cuentaredsu3; ?>"  data-toggle="tooltip" data-placement="bottom" title="Ingrese la Cuenta de Red Social">
+                                            </div>
+                                        <?php } ?>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <br><br>
+                                            <fieldset>
+                                                <legend><h4><label class="control-label">Lugar de Nacimiento</label></h4></legend>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Estado</label>
+                                            <select class="form-control" name="estado_nacimiento" id="estado" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estado de Nacimiento">
+                                        
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Municipio</label>
+                                            <select class="form-control" name="municipio_nacimiento" id="municipio" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Municipio de Nacimiento">
+
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <br><br>
+                                            <fieldset>
+                                                <legend><h4><label  class="control-label">Direcci&oacute;n de Casa/Departamento</label></h4></legend>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Estado</label><br>
+                                            <select class="form-control" name="estado_casa" id="estado1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estado donde reside">
+                                               
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Municipio</label><br>
+                                            <select class="form-control" name="municipio_casa" id="municipio1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Municipio donde reside">
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Parroquia</label><br>
+                                            <select class="form-control" name="parroquia_casa" id="parroquia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Parroquia donde reside">
+                                                
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12 form-group">
+                                            <label class="control-label">Direcci&oacute;n Exacta Donde Reside</label><br>
+                                            <textarea class="form-control" name="direccion_casa" id="direccion_casa" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Direcci&oacute;n Exacta donde reside">
+                                            <?php echo $this->_usuario[0]['direccioncasa']; ?></textarea>
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="col-xs-12">
+                                        <button type=submit class="btn btn-warning btn-lg pull-right">Modificar Datos Personales</button>
+                                        <br>
+                                    </div>
+
+                                </h5>
+                                </form>
+                                </div>
+                                <div class="row setup-content" id="step-2">
+                                <form action="<?php  echo BASE_URL;?>personal/up_enf_disc" method="POST" role="form" class="col-md-9 go-right" name="modificarenferdisca" id="modificarenferdisca"><h5>
+                                    <!-- <input type="hidden" name="idpersonal" id="idpersonal" value="<?php echo $this->_usuario[0]['idpersonal']; ?>">
+                                    <input type="hidden" name="iddiscapacidadpuente1" id="iddiscapacidadpuente1" value="<?php echo $this->_usuario[0]['iddiscapacidadpuente1']; ?>">
+                                    <input type="hidden" name="iddisc1" id="iddisc1" value="<?php echo $this->_usuario[0]['iddiscapacidad']; ?>"> -->
+
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Enfermedad/es</label></h3></legend>
+                                        </fieldset>
+                                        <div class="col-md-4" id="divenfermedad">
+                                            <div class="form-group" id="nombreenfermedad1">
+                                                <label class="control-label">Enfermedad</label>
+                                                <input type="text" class="form-control" name="enfermedad1" id="enfermedad1" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad2">
+                                                <label class="control-label">Enfermedad Nº 2</label>
+                                                <input type="text" class="form-control" name="enfermedad2" id="enfermedad2" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad3">
+                                                <label class="control-label">Enfermedad Nº 3</label>
+                                                <input type="text" class="form-control" name="enfermedad3" id="enfermedad3" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad4">
+                                                <label class="control-label">Enfermedad Nº 4</label>
+                                                <input type="text" class="form-control" name="enfermedad4" id="enfermedad4" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                            <div class="form-group" id="nombreenfermedad5">
+                                                <label class="control-label">Enfermedad Nº 5</label>
+                                                <input type="text" class="form-control" name="enfermedad5" id="enfermedad5" placeholder="Nombre de la Enfermedad"
+                                                value="<?php echo $this->_usuario[0]['enfermedad']; ?>" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="divtratamientoenfermedad">
+                                            <div class="form-group" id="tratamientoenfermedad1">
+                                                <label class="control-label">Tratamiento de la Enfermedad</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad1" id="tratamiento_enfermedad1" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad2">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 2</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad2" id="tratamiento_enfermedad2" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad3">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 3</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad3" id="tratamiento_enfermedad3" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad4">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 4</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad4" id="tratamiento_enfermedad4" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                            <div class="form-group" id="tratamientoenfermedad5">
+                                                <label class="control-label">Tratamiento de la Enfermedad Nº 5</label>
+                                                <textarea class="form-control" name="tratamiento_enfermedad5" id="tratamiento_enfermedad5" placeholder="Tratamiento de la Enfermedad" 
+                                                data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"><?php echo $this->_usuario[0]['tratamientoenfermedad']; ?></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <br><br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Discapacidad/es</label></h3></legend>
+                                        </fieldset>
+                                        <div class="col-md-4" id="divtipodiscapacidad">
+                                            <div class="form-group" id="tipodiscapacidad1">
+                                                <label class="control-label">Tipo de Discapacidad</label><br>
+                                                <select class="form-control" name="tipo_discapacidad1" id="tipo_discapacidad1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="divdiscapacidad">
+                                            <div class="form-group" id="nombrediscapacidad1">    
+                                                <label class="control-label">Discapacidad</label>
+                                                <input type="text" class="form-control" name="discapacidad1" id="discapacidad1"   value="<?php echo $this->_usuario[0]['discapacidadhija']; ?>"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Enfermedades y Discapacidades</button>
+                                        <br>
+                                    </div>
+                                     
+                                </h5></form>     
+                                </div>
+
+                                    
+                                <div class="row setup-content" id="step-3">
+                                <form action="<?php  echo BASE_URL;?>personal/up_datosseguro" method="POST" role="form" class="col-md-9 go-right" name="modificardatosseguro" id="modificardatosseguro" ><h5>
+
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Datos del Seguro</label></h3></legend>
+                                        </fieldset>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Seguro</label><br>
+                                                <select class="form-control" name="tipo_seguro1" id="tipo_seguro1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Seguro que posee">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Inicio de Valid&eacute;z del Seguro</label>
+                                                <input type="date" class="form-control" name="fecha_inicio_seguro1" id="fecha_inicio_seguro1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio de Valid&eacute;z del Seguro">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre del Seguro</label>
+                                                <input type="text" class="form-control" name="nombre_seguro1" id="nombre_seguro1" placeholder="Nombre del Seguro" data-toggle="tooltip" data-placement="bottom" value="<?php echo $this->_usuario[0]['nombreseguro']; ?>" title="Ingrese el Nombre del Seguro que posee">
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Fin de Valid&eacute;z del Seguro</label>
+                                                <input type="date" class="form-control" name="fecha_fin_seguro1" id="fecha_fin_seguro1" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" min="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin de Valid&eacute;z del Seguro">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">N&uacute;mero de Poliza de Seguro</label>
+                                                <input type="text" class="form-control" name="numero_poliza1" id="numero_poliza1" placeholder="N&uacute;mero de Poliza de Seguro" data-toggle="tooltip" value="<?php echo $this->_usuario[0]['polizaseguro']; ?>"  data-placement="bottom" title="Ingrese el N&uacute;mero de Poliza de Seguro">
+                                            </div>
+                                            <div class="form-group">
+                                                <br>
+                                                <label class="control-label">P&aacute;gina Web del Seguro</label>
+                                                <input type="text" class="form-control" name="pagina_web_seguro1" id="pagina_web_seguro1" placeholder="www.paginaseguro.com" data-toggle="tooltip" value="<?php echo $this->_usuario[0]['paginaseguro']; ?>" data-placement="bottom" title="Ingrese la P&aacute;gina Web del Seguro">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Datos del Seguro</button>
+                                        <br>
+                                    </div>
+                                       
+                                </h5></form>   
+                                </div>
+                                <div class="row setup-content" id="step-4">
+                                <form action="<?php  echo BASE_URL;?>personal/up_referencias" method="POST" role="form" class="col-md-9 go-right" name="modificarreferencias" id="modificarreferencias"><h5>
+                                    
+                                    <div class="col-xs-12">
+                                        <h3>Referencias Personales</h3>
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos1ref1">
+                                        <br><br>
+                                        <fieldset>
+                                            <legend><h4><label class="control-label">Referencia Nº 1</label></h4></legend>
+                                        </fieldset>
+                                        <br>
+                                        
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">Parentesco</label><br>
+                                            <select class="form-control" name="nexo1" id="nexo1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Parentesco entre el nuevo personal y la referencia a ingresar">
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label class="control-label">G&eacute;nero</label><br>
+                                            <select class="form-control" name="sexo_referencia1" id="sexo_referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el G&eacute;nero de la referencia">
+                                               
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos2ref1">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <?php $fechanacimientoreferenciamin = strtotime('-100 year',strtotime($fechaactual)); ?>
+                                                <label class="control-label">Fecha de Nacimiento</label>
+                                                <input type="date" class="form-control" name="fecha_nacimiento_referencia1" id="fecha_nacimiento_referencia1" max="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" min="<?php echo date('Y-m-d',$fechanacimientoreferenciamin); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Nacimiento de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Nombre</label>
+                                                <input type="text" class="form-control" name="nombre1_referencia1" id="nombre1_referencia1" placeholder="Primer Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Nombre de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="apellido1_referencia1" id="apellido1_referencia1" placeholder="Primer Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Primer Apellido de la referencia">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">C&eacute;dula de Identidad</label>
+                                                <input type="text" class="form-control" name="cedula_referencia1" id="cedula_referencia1" min="1" placeholder="C&eacute;dula de Identidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la C&eacute;dula de Identidad de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Nombre</label>
+                                                <input type="text" class="form-control" name="nombre2_referencia1" id="nombre2_referencia1" placeholder="Segundo Nombre" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Nombre de la referencia">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Apellido</label>
+                                                <input type="text" class="form-control" name="apellido2_referencia1" id="apellido2_referencia1" placeholder="Segundo Apellido" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Segundo Apellido de la referencia">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="col-xs-12" id="divdatos3ref1">
+                                        <div class="col-md-5 form-group">
+                                            <label class="control-label">Correo Electr&oacute;nico</label>
+                                            <input type="text" class="form-control" name="correoreferencia1" id="correoreferencia1" placeholder="cuenta@ejemplo.com" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Correo Electr&oacute;nico de la referencia">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos4ref1">
+
+                                        <div class="col-md-4" id="divcodigoareareferencia1">
+                                            <div class="form-group" id="codigoarea1referencia1">
+                                                <label class="control-label">C&oacute;digo de &Aacute;rea</label><br>
+                                                <select class="form-control" name="codigo_area1" id="codigo_tlf1referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el C&oacute;digo de &Aacute;rea">
+                                                      
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" id="divnumerotelefonoreferencia1">
+                                            <div class="form-group" id="numerotelefono1referencia1">
+                                                <label class="control-label">N&uacute;mero de Tel&eacute;fono</label><br>
+                                                <input type="text" class="form-control" name="telefono1" id="telefono1" placeholder="N&uacute;mero de Tel&eacute;fono" data-toggle="tooltip" data-placement="bottom" title="Ingrese el N&uacute;mero de Tel&eacute;fono">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2" id="divagregartelefonoreferencia1">
+                                            <div class="form-group" id="agregartelefono1referencia1">
+                                                <br>
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarTelefono('1','Referencia1')"><span class="glyphicon glyphicon-plus"></span></button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-xs-12" id="divdatos5ref1">
+
+                                        <div class="col-md-4" id="divtipodiscapacidadreferencia1">
+                                            <div class="form-group" id="tipodiscapacidad1referencia1">
+                                                <label class="control-label">Tipo de Discapacidad</label><br>
+                                                <select class="form-control" name="tipo_discapacidad1referencia1" id="tipo_discapacidad1referencia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee la referencia">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="divdiscapacidadreferencia1">
+                                            <div class="form-group" id="nombrediscapacidad1referencia1">    
+                                                <label class="control-label">Discapacidad</label>
+                                                <input type="text" class="form-control" name="discapacidad1referencia1" id="discapacidad1referencia1"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee la referencia">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2" id="divagregardiscapacidadreferencia1">
+                                            <div class="form-group" id="agregardiscapacidadreferencia1">
+                                                <br>
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarDiscapacidad('1','Referencia1')"><span class="glyphicon glyphicon-plus"></span></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12" id="divagregarreferencia1">
+                                        <center id="agregarreferencia1">
+                                            <button type="button" class="btn btn-info btn-sm" onclick="agregarReferencia('1')">Agregar Otra Referencia</button>
+                                        </center>
+                                    </div>
+
+                                    <div class="col-xs-12" id="divsiguiente1">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Referencias</button>
+                                    </div>
+
+                                </h5></form>
+                                </div>
+                                <div class="row setup-content" id="step-5">
+                                <form action="<?php  echo BASE_URL;?>personal/up_formacion" method="POST" role="form" class="col-md-9 go-right" name="modificarformacion" id="modificarformacion"><h5>
+
+                                    <div class="col-xs-12">
+                                        <h3>Formaci&oacute;n Acad&eacute;mica</h3>
+                                        <br>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Formaci&oacute;n</label><br>
+                                                <select class="form-control" name="tipo_formacion1" id="formacion_academica1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Formaci&oacute;n">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Estatus de la Formaci&oacute;n</label><br>
+                                                <select class="form-control" name="estatus_formacion1" id="status_formacion1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Estatus de la Formaci&oacute;n">
+                            
+                                                </select>
+                                            </div>
+                                        </div>
+
+       <div class="form-group" id="campos">
+
+                                    </div>
+                                    
+        
+
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <center id="agregarformacion">
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarFormacion('1')"><span class="glyphicon glyphicon-plus">Agregar Otra<br>Formaci&oacute;n</span></button>
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-warning btn-lg pull-right" type="button">Modificar Formaciones</button>
+                                    </div>
+
+                                </h5></form>
+                                </div>
+                                <div class="row setup-content" id="step-6">
+                                <form action="<?php  echo BASE_URL;?>personal/up_claucontra" method="POST" role="form" class="col-md-9 go-right" name="modificarclaucontra" id="modificarclaucontra"><h5>
+                                
+                                    <div class="col-xs-12">
+                                        <h3>Cl&aacute;usulas de la Contrataci&oacute;n</h3>
+                                        <br>
+
+                                        <div class="col-md-4">
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Personal</label><br>
+                                                <select class="form-control" name="tipo_personal" id="tipo_empleado" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Personal">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Sueldo</label><br>
+                                                <select class="form-control" name="tipo_sueldo" id="salarios" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Sueldo del contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                    
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Contrato</label>
+                                                <select class="form-control" name="tipo_contrato" id="tipo_contratacion" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Sueldo</label>
+                                                <input type="number" class="form-control" name="sueldo" id="sueldo" step="0.01" min="0.01" placeholder="Sueldo a Devengar" data-toggle="tooltip" data-placement="bottom" title="Ingrese el sueldo a devengar">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Departamento</label>
+                                                <select class="form-control" name="departamento" id="departamento" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Departamento Donde se Ejercer&aacute; el Cargo">
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Cargo a Ejercer</label><br>
+                                                <select class="form-control" name="cargo" id="cargo" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Cargo a ejercer">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Horas Trabajadas por Mes</label>
+                                                <input type="number" class="form-control" name="horas_mensuales_trabajadas" id="horas_mensuales_trabajadas" min="1" placeholder="Horas Trabajadas por Mes" data-toggle="tooltip" data-placement="bottom" title="Ingrese las Horas Trabajadas por Mes">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Inicio de Contrato</label>
+                                                <input type="date" class="form-control" name="fecha_inicio_contrato" id="fecha_inicio_contrato" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio del Contrato">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Fin de Contrato</label>
+                                                <input type="date" class="form-control" name="fecha_fin_contrato" id="fecha_fin_contrato" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin del Contrato">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <br><br>
+                                        <fieldset>
+                                            <legend><h4><label class="control-label">Asignaci&oacute;n de Materias</label></h4></legend>
+                                        </fieldset>
+
+                                        <div class="col-md-4" id="divperiodosemestre">
+                                            <div class="form-group" id="formperiodoacademico1">
+                                                <label class="control-label">Per&iacute;odo Acad&eacute;mico</label><br>
+                                                <select class="form-control" name="periodo_academico1" id="periodo_academico1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Per&iacute;odo Acad&eacute;mico de la materia dictada">
+                                                   
+                                                </select>
+                                            </div>
+                                            <div class="form-group" id="formsemestre1">
+                                                <label class="control-label">Semestre</label><br>
+                                                <select class="form-control" name="semestre1" id="semestre1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Semestre de la materia dictada">
+                                                  
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" id="divcarreramateria">
+                                            <div class="form-group" id="formcarrera1">
+                                                <label class="control-label">Carrera</label><br>
+                                                <select class="form-control" name="carrera1" id="carrera1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Carrera de la materia dictada">
+                                                   
+                                                </select>
+                                            </div>
+                                            <div class="form-group" id="formmateria1">
+                                                <label class="control-label">Materia</label><br>
+                                                <select class="form-control" name="materia1" id="materia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Materia dictada">
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" id="divagregarmateria">
+                                            <div class="form-group" id="agregarmateria1">
+                                                <br><br><br><br>
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarMateria('1')"><span class="glyphicon glyphicon-plus"></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button type="submit" class="btn btn-warning btn-lg pull-right">Modificar Contrataci&oacute;n</button>
+                                    </div>
+
+                                </h5></form>
+                                </div>
+                                <div class="row setup-content" id="step-7">
+                                <form action="<?php  echo BASE_URL;?>personal/up_salario" method="POST" role="form" class="col-md-9 go-right" name="modificarsalario" id="modificarsalario"><h5>
+                                
+                                    <div class="col-xs-12">
+                                        <fieldset>
+                                            <legend><h3><label class="control-label">Salarios</label></h3></legend>
+                                        </fieldset>
+
+                                        <div class="col-md-4">
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Sueldo</label><br>
+                                                <select class="form-control" name="tipo_sueldo2" id="salario2" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Sueldo del contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Inicio de Salario</label>
+                                                <input type="date" class="form-control" name="fecha_inicio_contrato2" id="fecha_inicio_contrato2" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio del Contrato">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Horas Trabajadas por Mes</label>
+                                                <input type="number" class="form-control" name="horas_mensuales_trabajadas2" id="horas_mensuales_trabajadas2" min="1" placeholder="Horas Trabajadas por Mes" data-toggle="tooltip" data-placement="bottom" title="Ingrese las Horas Trabajadas por Mes">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Sueldo</label>
+                                                <input type="number" class="form-control" name="sueldo2" id="sueldo2" step="0.01" min="0.01" placeholder="Sueldo a Devengar" data-toggle="tooltip" data-placement="bottom" title="Ingrese el sueldo a devengar">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Fin de Salario</label>
+                                                <input type="date" class="form-control" name="fecha_fin_contrato2" id="fecha_fin_contrato2" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin del Contrato">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button type="submit" class="btn btn-warning btn-lg pull-right">Modificar Salarios</button>
+                                    </div>
+
+                                </h5></form>
+                                </div>
+
+                            </div>
+                        </div>
+                    <!-- /.col-lg-12 -->
+
+                    </div>
+                <!-- /.row -->
+                </div>
+            <!-- /.container-fluid -->
+            </div>
+        <!-- /#page-wrapper -->
+        <!-- no borrar -->
+        </div>
+
+    
+    
+                
+                    
+                    
+                    
+                    

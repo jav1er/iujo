@@ -1,0 +1,110 @@
+ <div class="row setup-content" id="step-2">
+<form action="<?php  echo BASE_URL;?>actuliacizacion/update" method="POST" role="form" class="col-md-9 go-right" name="modificarenferdisca" id="modificarenferdisca"><h5>
+                                        <div class="col-xs-12">
+                                            <h3>Enfermedades, Discapacidades UPDATE</h3>
+                                            <br>
+
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label class="control-label">Enfermedad/es</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4" id="divenfermedad">
+                                                <div class="form-group" id="nombreenfermedad1">
+                                                    <label class="control-label">Enfermedad</label>
+                                                    <input type="text" class="form-control" name="enfermedad1" id="enfermedad1" placeholder="Nombre de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                                </div>
+                                                <div class="form-group" id="nombreenfermedad1">
+                                                    <label class="control-label">Enfermedad</label>
+                                                    <input type="text" class="form-control" name="enfermedad2" id="enfermedad1" placeholder="Nombre de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                                </div>
+                                                <div class="form-group" id="nombreenfermedad1">
+                                                    <label class="control-label">Enfermedad</label>
+                                                    <input type="text" class="form-control" name="enfermedad3" id="enfermedad1" placeholder="Nombre de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la Enfermedad que posee">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" id="divtratamientoenfermedad">
+                                                <div class="form-group" id="tratamientoenfermedad1">
+                                                    <label class="control-label">Tratamiento de la Enfermedad</label>
+                                                    <textarea class="form-control" name="tratamiento_enfermedad1" id="tratamiento_enfermedad1" placeholder="Tratamiento de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"></textarea>
+                                                </div>
+                                                <div class="form-group" id="tratamientoenfermedad2">
+                                                    <label class="control-label">Tratamiento de la Enfermedad</label>
+                                                    <textarea class="form-control" name="tratamiento_enfermedad2" id="tratamiento_enfermedad1" placeholder="Tratamiento de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"></textarea>
+                                                </div>
+                                                <div class="form-group" id="tratamientoenfermedad2">
+                                                    <label class="control-label">Tratamiento de la Enfermedad</label>
+                                                    <textarea class="form-control" name="tratamiento_enfermedad3" id="tratamiento_enfermedad1" placeholder="Tratamiento de la Enfermedad" data-toggle="tooltip" data-placement="bottom" title="Ingrese el Tratamiento de la Enfermedad"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" id="divagregarenfermedad">
+                                                <div class="form-group" id="agregarenfermedad1">
+                                                    <br>
+                                                    <!-- <button type="button" class="btn btn-info btn-sm" onclick="agregarEnfermedad('1','Personal')"><span class="glyphicon glyphicon-plus"></span></button> -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="col-md-12">
+                                                <br><br>
+                                                <fieldset>
+                                                    <legend><h4><label class="control-label">Discapacidad/es</label></h4></legend>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+
+                                            <div class="col-md-4" id="divtipodiscapacidad">
+                                                <div class="form-group" id="tipodiscapacidad1">
+                                                    <label class="control-label">Tipo de Discapacidad</label><br>
+                                                    <select class="form-control" name="tipo_discapacidad1" id="tipo_discapacidad1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee">
+                                                    </select>
+                                                </div>
+                                                <div class="form-group" id="tipodiscapacidad1">
+                                                    <label class="control-label">Tipo de Discapacidad</label><br>
+                                                    <select class="form-control" name="tipo_discapacidad2" id="tipo_discapacidad2" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee">
+                                                    </select>
+                                                </div>
+                                                 <div class="form-group" id="tipodiscapacidad1">
+                                                    <label class="control-label">Tipo de Discapacidad</label><br>
+                                                    <select class="form-control" name="tipo_discapacidad3" id="tipo_discapacidad3" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Discapacidad que posee">
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6" id="divdiscapacidad">
+                                                <div class="form-group" id="nombrediscapacidad1">    
+                                                    <label class="control-label">Discapacidad</label>
+                                                    <input type="text" class="form-control" name="discapacidad1" id="discapacidad1"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee">
+                                                </div>
+                                                 <div class="form-group" id="nombrediscapacidad1">    
+                                                    <label class="control-label">Discapacidad</label>
+                                                    <input type="text" class="form-control" name="discapacidad2" id="discapacidad2"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee">
+                                                </div>
+                                                 <div class="form-group" id="nombrediscapacidad1">    
+                                                    <label class="control-label">Discapacidad</label>
+                                                    <input type="text" class="form-control" name="discapacidad3" id="discapacidad3"  placeholder="Nombre de la Discapacidad" data-toggle="tooltip" data-placement="bottom" title="Ingrese la discapacidad que posee">
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                            <div class="col-xs-12">
+                                        <button class="btn btn-warning btn-lg pull-right" type="submit">Modificar Enfermedades y Discapacidades</button>
+                                        <br>
+                                            </div>
+                                     
+                                </h5></form>     
+                                </div>
+
+
+
+
+
+
+
+                                           

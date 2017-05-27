@@ -1,0 +1,130 @@
+<div class="row setup-content" id="step-6">
+                                <form action="<?php  echo BASE_URL;?>personal/up_claucontra" method="POST" role="form" class="col-md-9 go-right" name="modificarclaucontra" id="modificarclaucontra"><h5>
+                                
+                                    <div class="col-xs-12">
+                                        <h3>Cl&aacute;usulas de la Contrataci&oacute;n</h3>
+                                        <br>
+
+                                        <div class="col-md-4">
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Personal</label><br>
+                                                <select class="form-control" name="tipo_personal" id="tipo_empleado" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Personal">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Sueldo</label><br>
+                                                <select class="form-control" name="tipo_sueldo" id="salarios" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Sueldo del contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                    
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label">Tipo de Contrato</label>
+                                                <select class="form-control" name="tipo_contrato" id="tipo_contratacion" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Tipo de Contrato (VIENE POR DEFECTO, NO SE ELIGE)">
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Sueldo</label>
+                                                <input type="number" class="form-control" name="sueldo" id="sueldo" step="0.01" min="0.01" placeholder="Sueldo a Devengar" data-toggle="tooltip" data-placement="bottom" title="Ingrese el sueldo a devengar">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Departamento</label>
+                                                <select class="form-control" name="departamento" id="departamento" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Departamento Donde se Ejercer&aacute; el Cargo">
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Cargo a Ejercer</label><br>
+                                                <select class="form-control" name="cargo" id="cargo" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Cargo a ejercer">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Horas Trabajadas por Mes</label>
+                                                <input type="number" class="form-control" name="horas_mensuales_trabajadas" id="horas_mensuales_trabajadas" min="1" placeholder="Horas Trabajadas por Mes" data-toggle="tooltip" data-placement="bottom" title="Ingrese las Horas Trabajadas por Mes">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Inicio de Contrato</label>
+                                                <input type="date" class="form-control" name="fecha_inicio_contrato" id="fecha_inicio_contrato" value="<?php echo date('Y-m-d',strtotime($fechaactual)); ?>" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Inicio del Contrato">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Fin de Contrato</label>
+                                                <input type="date" class="form-control" name="fecha_fin_contrato" id="fecha_fin_contrato" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Fecha de Fin del Contrato">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <br><br>
+                                        <fieldset>
+                                            <legend><h4><label class="control-label">Asignaci&oacute;n de Materias</label></h4></legend>
+                                        </fieldset>
+
+                                        <div class="col-md-4" id="divperiodosemestre">
+                                            <div class="form-group" id="formperiodoacademico1">
+                                                <label class="control-label">Per&iacute;odo Acad&eacute;mico</label><br>
+                                                <select class="form-control" name="periodo_academico1" id="periodo_academico1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Per&iacute;odo Acad&eacute;mico de la materia dictada">
+                                                   
+                                                </select>
+                                            </div>
+                                            <div class="form-group" id="formsemestre1">
+                                                <label class="control-label">Semestre</label><br>
+                                                <select class="form-control" name="semestre1" id="semestre1" data-toggle="tooltip" data-placement="bottom" title="Seleccione el Semestre de la materia dictada">
+                                                  
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" id="divcarreramateria">
+                                            <div class="form-group" id="formcarrera1">
+                                                <label class="control-label">Carrera</label><br>
+                                                <select class="form-control" name="carrera1" id="carrera1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Carrera de la materia dictada">
+                                                   
+                                                </select>
+                                            </div>
+                                            <div class="form-group" id="formmateria1">
+                                                <label class="control-label">Materia</label><br>
+                                                <select class="form-control" name="materia1" id="materia1" data-toggle="tooltip" data-placement="bottom" title="Seleccione la Materia dictada">
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" id="divagregarmateria">
+                                            <div class="form-group" id="agregarmateria1">
+                                                <br><br><br><br>
+                                                <button type="button" class="btn btn-info btn-sm" onclick="agregarMateria('1')"><span class="glyphicon glyphicon-plus"></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <button type="submit" class="btn btn-warning btn-lg pull-right">Modificar Contrataci&oacute;n</button>
+                                    </div>
+
+                                </h5></form>
+                                </div>

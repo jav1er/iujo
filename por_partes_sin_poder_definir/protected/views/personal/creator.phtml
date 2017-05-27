@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+	<?php
+		$hoy = date("d.m.y");  
+		header("Content-type: application/vnd.ms-excel; name='excel'");
+		header("Content-Disposition: filename=RelacionAsistencia$hoy.xls");
+		header("Pragma: no-cache");
+		header("Expires: 0");
+
+		echo $_POST['datos_a_enviar'];
+	?>
+</body>
+</html>
